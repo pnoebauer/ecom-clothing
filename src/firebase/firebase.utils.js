@@ -14,6 +14,37 @@ const config = {
     measurementId: "G-BJTCES07KT"
 };
 
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+	if(!userAuth) return;
+
+	const userRef = firestore.doc(`users/${userAuth.uid}`);
+	// console.log('auth',userAuth.uid, 'userRef', userRef);
+
+	const snapShot = await userRef.get();
+	// console.log('snapShot',snapShot,snapShot.exists);
+
+	//if no snapShot exists at this location, create one
+	if(!snapShot.exists) {
+		const { displayName, email } = userAuth;
+		const createdAt = new Date();
+		// console.log(displayName, email);
+
+		try {
+			await userRef.set({
+				displayName,
+				email,
+				createdAt,
+				...additionalData
+			});
+		}
+		catch (error) {
+			console.log('error creating user', error);
+		}
+	}
+
+	return userRef;
+}
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
