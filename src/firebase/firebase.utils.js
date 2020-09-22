@@ -21,7 +21,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	// console.log('auth',userAuth.uid, 'userRef', userRef);
 
 	const snapShot = await userRef.get();
-	// console.log('snapShot',snapShot,snapShot.exists);
+	// console.log('snapShot',snapShot);
 
 	//if no snapShot exists at this location, create one
 	if(!snapShot.exists) {
