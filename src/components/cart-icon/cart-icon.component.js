@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
 
 import { ReactComponent as Icon } from '../../assets/shopping-bag.svg';
