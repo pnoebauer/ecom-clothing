@@ -22,6 +22,26 @@ export const addItemAndSetQuantity = (items, addItem) => {
 	}
 };
 
-export const clearItemFromCart = (items, removeItem) => {
-	return items.filter(item => item.id !== removeItem.id);
+export const removeItemFromCart = (items, removeItem) => {
+
+	if(removeItem.quantity <= 1) {
+		return clearItemFromCart(items, removeItem);
+	}
+	else {
+		return items.map(item => {
+			if(item.id === removeItem.id) {
+				return {
+					...item,
+					quantity: item.quantity - 1
+				};
+			}
+			else {
+				return item;
+			}
+		});
+	}
+};
+
+export const clearItemFromCart = (items, clearItem) => {
+	return items.filter(item => item.id !== clearItem.id);
 }

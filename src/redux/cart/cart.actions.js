@@ -13,6 +13,13 @@ export const addItemToCart = (payload) => {
 	};
 };
 
+export const removeItemFromCart = (payload) => {
+	return {
+		type: UserActionTypes.REMOVE_ITEM,
+		payload
+	};
+};
+
 export const clearItemFromCart = (payload) => {
 	return {
 		type: UserActionTypes.CLEAR_ITEM,
