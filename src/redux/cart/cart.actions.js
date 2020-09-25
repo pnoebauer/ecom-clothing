@@ -12,3 +12,10 @@ export const addItemToCart = (payload) => {
 		payload
 	};
 };
+
+export const clearItemFromCart = (payload) => {
+	return {
+		type: UserActionTypes.CLEAR_ITEM,
+		payload
+	};
+};

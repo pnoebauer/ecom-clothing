@@ -21,3 +21,7 @@ export const addItemAndSetQuantity = (items, addItem) => {
 		});
 	}
 };
+
+export const clearItemFromCart = (items, removeItem) => {
+	return items.filter(item => item.id !== removeItem.id);
+}

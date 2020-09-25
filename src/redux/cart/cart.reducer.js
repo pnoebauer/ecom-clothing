@@ -1,6 +1,6 @@
 import { UserActionTypes } from './cart.types';
 
-import { addItemAndSetQuantity } from './cart.utils';
+import { addItemAndSetQuantity, clearItemFromCart } from './cart.utils';
 
 const initialState = {
 	hidden: true,
@@ -18,6 +18,11 @@ const cartReducer = (state=initialState, action) => {
 			return {
 				...state,
 				items: addItemAndSetQuantity(state.items, action.payload)
+			};
+		case UserActionTypes.CLEAR_ITEM:
+			return {
+				...state,
+				items: clearItemFromCart(state.items, action.payload)
 			};
 		default:
 			return state;
