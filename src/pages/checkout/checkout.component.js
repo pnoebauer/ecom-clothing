@@ -6,8 +6,6 @@ import './checkout.styles.scss';
 
 import { selectCartItems, selectCartItemsCost } from '../../redux/cart/cart.selectors';
 
-import { toggleCartHidden } from '../../redux/cart/cart.actions';
-
 const CheckoutPage = ({ cartItems, cartCost }) => (
 	<div className='checkout-page'>
 		<div className='checkout-header'>
