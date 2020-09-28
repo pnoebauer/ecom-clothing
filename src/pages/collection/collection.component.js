@@ -10,6 +10,7 @@ import { selectCollection } from '../../redux/shop/shop.selectors';
 // const CollectionPage = ({ collection, match }) => {
 // 	console.log(collection, match.params.collectionId);
 const CollectionPage = ({ collection }) => {
+	console.log(collection)
 	const { items, title } = collection;
 	return (
 		<div className='collection-page'>
