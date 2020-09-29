@@ -1,3 +1,5 @@
+//loops over all product categories and maps CollectionPreview of each category
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -19,4 +21,4 @@ const mapStateToProps = createStructuredSelector({
 	collections: selectCollectionsOverview
 });
 
-export default connect(mapStateToProps)(CollectionOverview);
+export default connect(mapStateToProps)(CollectionOverview)
