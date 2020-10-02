@@ -45,9 +45,21 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	return userRef;
 }
 
-export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+export const addCollectionsAndDocuments = async (collectionKey, objectsToAdd) => {
 	const collectionRef = firestore.collection(collectionKey);
-	console.log(collectionRef);
+	// console.log('Ref',collectionRef);
+
+	//batch so all calls to firebase are sent together
+	//through batch either all calls succeed or all of them are cancelled if an error occurs
+	//prevents the process passing only halfway through
+	const batch = firestore.batch();
+	objectsToAdd.forEach(obj => {
+		const newDocRef = collectionRef.doc(); //doc call at empty ref; firebase will create the ref and create an unique id
+		// console.log('newDocRef', newDocRef);
+		batch.set(newDocRef, obj);
+	});
+
+	return await batch.commit(); //commit the batch call; returns a promise;
 }
 
 firebase.initializeApp(config);
