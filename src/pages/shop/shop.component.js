@@ -21,7 +21,7 @@ class ShopPage extends React.Component {
 			// console.log('snapshot', snapshot);
 			const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
 			// console.log('collectionsMap', collectionsMap);
-			setCollections(collectionsMap);
+			setCollections(collectionsMap); //set state to the collectionsMap
 		})
 	}
 
