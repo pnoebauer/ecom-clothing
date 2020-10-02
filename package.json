@@ -18,7 +18,8 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "reselect": "^4.0.0",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,7 +44,6 @@
   },
   "comments": {
     "scripts": {
-      "start": "serve -s build",
       "start": "BROWSER='safari' react-scripts start"
     }
   }
