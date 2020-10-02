@@ -18,5 +18,7 @@ export const selectCollection = collectionUrlParam => (
 //convert collections object to array
 export const selectCollectionsOverview = createSelector(
 	[selectCollections],
-	collections => Object.entries(collections).map(([key, value]) => value)
+	collections => {
+		return collections ? Object.entries(collections).map(([key, value]) => value) : []
+	}
 );

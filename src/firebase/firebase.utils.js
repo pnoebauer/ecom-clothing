@@ -2,7 +2,6 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-
 const config = {
     apiKey: "AIzaSyC9bS3l5KOcESkYjR3sx6LwENqRuDAHN7A",
     authDomain: "ecom-clothing-db-19b5d.firebaseapp.com",
@@ -13,6 +12,8 @@ const config = {
     appId: "1:1091061480265:web:e4b32aa06ce16c21c27898",
     measurementId: "G-BJTCES07KT"
 };
+
+firebase.initializeApp(config);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
 	if(!userAuth) return;
@@ -62,7 +63,28 @@ export const addCollectionsAndDocuments = async (collectionKey, objectsToAdd) =>
 	return await batch.commit(); //commit the batch call; returns a promise;
 }
 
-firebase.initializeApp(config);
+export const convertCollectionsSnapshotToMap = collections => {
+	//loops through the collections snapshot array, and returns a new array with objects having the required properties
+	const transformedCollection = collections.docs.map(doc => {
+		const { title, items } = doc.data(); //get actual data from snapshot
+
+		//return object with new props
+		return {
+			routeName: encodeURI(title.toLowerCase()),
+			id: doc.id,
+			title,
+			items
+		};
+	});
+
+	// console.log('transformedCollection', transformedCollection);
+
+	//convert array to object
+	return transformedCollection.reduce((accumulator, collection) => {
+					accumulator[collection.title.toLowerCase()] = collection;
+					return accumulator;
+				}, {});
+}
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

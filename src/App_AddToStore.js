@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 
-import SHOP_DATA from './redux/shop/shop.data'; 
+import SHOP_DATA from './assets/shop.data'; 
 
 import { addCollectionsAndDocuments } from './firebase/firebase.utils';
 
