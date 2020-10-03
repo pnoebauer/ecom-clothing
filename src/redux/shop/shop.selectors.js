@@ -20,3 +20,8 @@ export const selectCollectionsOverview = createSelector(
 	[selectCollections],
 	collections => collections ? Object.entries(collections).map(([key, value]) => value) : []
 );
+
+export const selectIsCollectionLoaded = createSelector(
+	[selectShop],
+	shop => !!shop.collections
+);
