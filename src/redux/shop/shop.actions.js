@@ -26,11 +26,9 @@ export const fetchCollectionsStartAsync = () => {
 			////immediately after the asynch function starts dispatch fetchCollectionsStart so that the reducer is updated to FETCH_COLLECTIONS_START
 			dispatch(fetchCollectionsStart()); 
 			
-			collectionRef.get()
-			.then(snapshot => {
+			collectionRef.get().then(snapshot => {
 				const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-				dispatch(fetchCollectionsSuccess);
-			})
-			.catch(error => dispatch(fetchCollectionsFailure));
+				dispatch(fetchCollectionsSuccess(collectionsMap));
+			}).catch(error => dispatch(fetchCollectionsFailure));
 	}
 }
