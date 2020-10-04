@@ -4,14 +4,12 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import CollectionPage from '../collection/collection.component';
-import CollectionOverview from '../../components/collection-overview/collection-overview.component';
+import CollectionOverviewContainer from '../../components/collection-overview/collection-overview.container';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
 import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions';
 import { selectIsCollectionLoaded } from '../../redux/shop/shop.selectors';
 
-
-const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview);
 const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 class ShopPage extends React.Component {
@@ -29,9 +27,7 @@ class ShopPage extends React.Component {
 				<Route 
 					exact 
 					path={`${match.path}`} 
-					render={props => (
-						<CollectionOverviewWithSpinner isLoading={!isCollectionLoaded} {...props} />
-					)} 
+					component={CollectionOverviewContainer} 
 				/>
 				<Route 
 					path={`${match.path}/:collectionId`} 
