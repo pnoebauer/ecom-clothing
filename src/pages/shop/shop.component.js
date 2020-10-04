@@ -35,7 +35,7 @@ class ShopPage extends React.Component {
 		collectionRef.get().then(snapshot => {
 			const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
 			setCollections(collectionsMap); 
-		})
+		});
 
 		// //(3) onSnapshot: live listener - always runs when first fired or an update occurs
 		// collectionRef.onSnapshot(async snapshot => {
