@@ -25,13 +25,23 @@ class ShopPage extends React.Component {
 		const { setCollections } = this.props;
 		const collectionRef = firestore.collection('collections');
 
-		//live listener - always runs when first fired or an update occurs
-		collectionRef.onSnapshot(async snapshot => {
-			// console.log('snapshot', snapshot);
+		//(1) fetch pattern using REST calls: similar to (2) but returns are structured differently (very nested and hence harder to retrieve the actual properties)
+		// fetch('https://firestore.googleapis.com/v1/projects/ecom-clothing-db/databases/(default)/documents/collections')
+		// .then(respone => respone.json())
+		// .then(collections => console.log(collections))
+
+
+		// (2) promise pattern - same as onSnapshot except that it only fires once
+		collectionRef.get().then(snapshot => {
 			const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-			// console.log('collectionsMap', collectionsMap);
-			setCollections(collectionsMap); //set state to the collectionsMap
+			setCollections(collectionsMap); 
 		})
+
+		// //(3) onSnapshot: live listener - always runs when first fired or an update occurs
+		// collectionRef.onSnapshot(async snapshot => {
+		// 	const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+		// 	setCollections(collectionsMap); 
+		// })
 	}
 
 	render() {
