@@ -37,8 +37,11 @@ class SignUp extends React.Component {
 	        	email,
 	        	password
 	      	);
+
+	      	const userRef = await createUserProfileDocument(user, { displayName });
+	      	const userSnapshot = await userRef.get();
+	      	console.log(userSnapshot.id,userSnapshot.data());
 	      	// console.log(user, { displayName });
-	      	await createUserProfileDocument(user, { displayName });
 
 	      	this.setState({
 	        	displayName: '',
