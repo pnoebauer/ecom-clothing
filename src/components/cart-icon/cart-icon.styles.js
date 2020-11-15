@@ -12,7 +12,7 @@ export const CartIconContainer = styled.div`
 
 export const IconContainer = styled.div`
 	height: 24px;
-	widows: 24px;
+	width: 24px;
 `;
 
 export const ItemCountContainer = styled.span`
