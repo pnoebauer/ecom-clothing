@@ -1,28 +1,34 @@
-import { UserActionTypes } from './cart.types';
+import { CartActionTypes } from './cart.types';
 
 export const toggleCartHidden = () => {
 	return {
-		type: UserActionTypes.TOGGLE_CART_HIDDEN
+		type: CartActionTypes.TOGGLE_CART_HIDDEN
 	};
 };
 
 export const addItemToCart = (payload) => {
 	return {
-		type: UserActionTypes.ADD_ITEM,
+		type: CartActionTypes.ADD_ITEM,
 		payload
 	};
 };
 
 export const removeItemFromCart = (payload) => {
 	return {
-		type: UserActionTypes.REMOVE_ITEM,
+		type: CartActionTypes.REMOVE_ITEM,
 		payload
 	};
 };
 
 export const clearItemFromCart = (payload) => {
 	return {
-		type: UserActionTypes.CLEAR_ITEM,
+		type: CartActionTypes.CLEAR_ITEM,
 		payload
+	};
+};
+
+export const clearCart = () => {
+	return {
+		type: CartActionTypes.CLEAR_CART
 	};
 };
