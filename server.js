@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 //during testing or development
-if(process.env.NODE_ENV !== 'production') require('dotenv').config(); //load .env into process environment
+if(process.env.NODE_ENV !== 'production') require('dotenv').config(); //load .env into process environment (adds variables from there)
+
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express(); //instantiate new express application
 const port = process.env.PORT || 5000; //heroku sets up process port; during development use port 5000
@@ -27,4 +29,24 @@ if(process.env.NODE_ENV === 'production') {
 app.listen(port, error => {
 	if(error) throw error;
 	console.log('Server running on port', port);
+})
+
+// frontend will post to route /payment
+app.post('/payment', (req, res) => {
+	//req object contains token that is needed to make a Stripe payment; token from stripe-button.component
+	// pass body to Stripe API (https://stripe.com/docs/api/charges)
+	const body = {
+		source: req.body.token.id,
+		amount: req.body.amount,
+		currency: 'usd'
+	};
+	// Create charge object and send the stripe response to the frontend (client)
+	stripe.charges.create(body, (stripeErr, stripeRes) => {
+		if(stripeErr) {
+			res.status(500).send({ error: stripeErr });
+		}
+		else(stripeRes) {
+			res.status(200).send( { success: stripeRes });
+		}
+	})
 })
