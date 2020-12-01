@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 import {
 	CollectionItemContainer,
 	ImageContainer,
-	CustomButtonContainer,
+	AddButton,
 	CollectionFooterContainer,
 	NameContainer,
 	PriceContainer
 } from './collection-item.styles';
-
-import CustomButton from '../custom-button/custom-button.component';
 
 import { addItemToCart } from '../../redux/cart/cart.actions';
 
@@ -29,7 +27,7 @@ const CollectionItem = ({item, addItem}) => {
 				<NameContainer>{name}</NameContainer>
 				<PriceContainer>{price}</PriceContainer>
 			</CollectionFooterContainer>
-			<CustomButtonContainer as={CustomButton} inverted onClick={() => addItem(item)} >Add to Cart</CustomButtonContainer>
+			<AddButton inverted onClick={() => addItem(item)} >Add to Cart</AddButton>
 		</CollectionItemContainer>
 	);
 };

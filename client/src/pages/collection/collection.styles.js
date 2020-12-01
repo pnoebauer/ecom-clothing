@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const CollectionPageContainer = styled.div`
 	display: flex;
@@ -17,5 +17,15 @@ export const ItemsContainer = styled.div`
 	
   		& > div {
     		margin-bottom: 30px;
-  		}
+		}
+		  
+	@media screen and (max-width: 800px) {
+		display: grid;
+		justify-content: center;
+		align-items: center;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+		grid-gap: 10px;
+		background-color: red;
+    }
 `;

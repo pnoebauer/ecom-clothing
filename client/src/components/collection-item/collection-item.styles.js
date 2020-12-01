@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
+import CustomButton from '../custom-button/custom-button.component';
 
 export const CollectionItemContainer = styled.div`
 	position: relative;
@@ -18,6 +19,18 @@ export const CollectionItemContainer = styled.div`
       display: flex;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    &:hover {
+      .image {
+        opacity: unset;
+      }
+      button {
+        opacity: unset;
+      }
+    }
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -28,12 +41,19 @@ export const ImageContainer = styled.div`
   margin-bottom: 5px;
 `;
 
-export const CustomButtonContainer = styled.button`
+export const AddButton = styled(CustomButton)`
 	width: 80%;
   opacity: 0.7;
   position: absolute;
   top: 255px;
   display: none;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 `;
 
 export const CollectionFooterContainer = styled.div`
@@ -42,7 +62,7 @@ export const CollectionFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
-  `;
+`;
 
 export const NameContainer = styled.span`
 	width: 90%;
