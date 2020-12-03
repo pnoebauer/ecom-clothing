@@ -26,6 +26,5 @@ export const ItemsContainer = styled.div`
         width: 100%;
         grid-template-columns: 1fr 1fr;
 		grid-gap: 10px;
-		background-color: red;
     }
 `;

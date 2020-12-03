@@ -25,6 +25,5 @@ export const PreviewContainer = styled.div`
         width: 100%;
         grid-template-columns: 1fr 1fr;
         grid-gap: 10px;
-        background-color: blue;
     }
 `;
