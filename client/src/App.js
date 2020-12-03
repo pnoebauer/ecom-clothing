@@ -5,8 +5,8 @@ import { createStructuredSelector } from 'reselect';
 
 import { GlobalStyle } from './global.styles';
 
-
 import Header from './components/header/header.component';
+import Spinner from './components/spinner/spinner.component';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
@@ -36,7 +36,7 @@ class App extends React.Component {
 				<GlobalStyle />
 				<Header />
 				<Switch>
-					<Suspense fallback={<div>Loading...</div>}>
+					<Suspense fallback={<Spinner />} >
 						<Route exact path='/' component={HomePage} />
 						<Route path='/shop' component={ShopPage} />
 						<Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage/>)} />
