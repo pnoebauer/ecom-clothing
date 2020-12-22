@@ -37,7 +37,7 @@ app.listen(port, error => {
 
 //when app requests service-worker.js file from '/service-worker.js' route, then send it
 app.get('/service-worker.js', (req,res) => {
-	res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js')); //service-worker comes with create-react-app and is within the build folder
+	res.sendFile(path.resolve(__dirname, '..', 'client/build', 'service-worker.js')); //service-worker comes with create-react-app and is within the build folder
 });
 
 // frontend will post to route /payment
