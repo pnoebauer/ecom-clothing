@@ -22,7 +22,6 @@ app.use(cors()); //allow requests from port 3000 (frontend) to port 5000 (backen
 
 //when app requests service-worker.js file from '/service-worker.js' route, then send it
 app.get('/service-worker.js', (req,res) => {
-	console.log('service-worker-route hit');
 	res.sendFile(path.resolve(__dirname, '..', 'client/build', 'service-worker.js')); //service-worker comes with create-react-app and is within the build folder
 });
 
