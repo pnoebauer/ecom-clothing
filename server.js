@@ -13,7 +13,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express(); //instantiate new express application
 const port = process.env.PORT || 5000; //heroku sets up process port; during development use port 5000
 
-// app.use(compression()); //use gzip compression in the Express app to decrease size of response body
+app.use(compression()); //use gzip compression in the Express app to decrease size of response body
 app.use(bodyParser.json()); //for any requests coming in, process their body tag and convert to json
 app.use(bodyParser.urlencoded({ extended: true })); //url requests that contain incorrect characters (i.e. spaces) are converted to correct ones
 app.use(enforce.HTTPS({ trustProtoHeader: true })); //always use HTTPS even if request comes from HTTP
@@ -38,7 +38,7 @@ app.listen(port, error => {
 
 //when app requests service-worker.js file from '/service-worker.js' route, then send it
 app.get('/service-worker.js', (req,res) => {
-	res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js')); //service-worker comes with create-react-app and is within the build folder
+	res.sendFile(path.resolve(__dirname, '..', 'build', 'serviceWorker.js')); //service-worker comes with create-react-app and is within the build folder
 });
 
 // frontend will post to route /payment
