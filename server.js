@@ -26,7 +26,7 @@ if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')));
 
 	//when app requests service-worker.js file from '/service-worker.js' route, then send it
-	app.get('/service-worker.js', (req,res) => {
+	app.get('/service-worker.js', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client/build', 'service-worker.js')); //service-worker comes with create-react-app and is within the build folder
 	});
 
