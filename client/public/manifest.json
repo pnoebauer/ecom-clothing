@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "Ecom-512x512.png",
+      "src": "ecom-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "Ecom-192x192.png",
+      "src": "ecom-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }
