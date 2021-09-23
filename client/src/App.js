@@ -1,34 +1,37 @@
-import React, { lazy, Suspense } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import React, {lazy, Suspense} from 'react';
+import {Switch, Route, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {createStructuredSelector} from 'reselect';
 
-import { GlobalStyle } from './global.styles';
+import {GlobalStyle} from './global.styles';
 
 import Header from './components/header/header.component';
 import Spinner from './components/spinner/spinner.component';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
-import { selectCurrentUser } from './redux/user/user.selectors';
-import { checkUserSession } from './redux/user/user.actions';
+import ContactPage from './pages/contact/contact.component';
+
+import {selectCurrentUser} from './redux/user/user.selectors';
+import {checkUserSession} from './redux/user/user.actions';
 
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
-const SignInAndSignUpPage = lazy(() => import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component'));
+const SignInAndSignUpPage = lazy(() =>
+	import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
+);
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 
 class App extends React.Component {
-
 	componentDidMount() {
-		const { checkUserSession } = this.props;
+		const {checkUserSession} = this.props;
 		checkUserSession();
-	};
+	}
 
-  render() {
-		const { currentUser } = this.props;
+	render() {
+		const {currentUser} = this.props;
 		return (
 			<div>
-				<GlobalStyle />
+				{/* <GlobalStyle />
 				<Header />
 				<Switch>
 					<ErrorBoundary>
@@ -39,18 +42,19 @@ class App extends React.Component {
 							<Route exact path='/checkout' component={CheckoutPage} />
 						</Suspense>
 					</ErrorBoundary>
-				</Switch>
+				</Switch> */}
+				<ContactPage />
 			</div>
 		);
 	}
-};
+}
 
 const mapStateToProps = createStructuredSelector({
-	currentUser: selectCurrentUser
+	currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = dispatch => ({
-	checkUserSession: () => dispatch(checkUserSession())
-})
+	checkUserSession: () => dispatch(checkUserSession()),
+});
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

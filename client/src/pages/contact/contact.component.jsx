@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import './contact.styles.css';
 
@@ -13,7 +12,7 @@ class ContactPage extends React.Component {
 		};
 	}
 
-	// handleSubmit(e) {
+	// handleSubmit = (e) => {
 	// 	e.preventDefault();
 	// 	axios({
 	// 		method: 'POST',
@@ -33,43 +32,63 @@ class ContactPage extends React.Component {
 	// 	this.setState({name: '', email: '', message: ''});
 	// }
 
+	handleChange = event => {
+		const {id, value} = event.currentTarget;
+		this.setState({[id]: value});
+	};
+
 	render() {
+		const {name, email, message} = this.state;
 		return (
-			<div class='container'>
-				<h1 class='title'>Contact Form</h1>
-				<div class='wrapper animated bounceInLeft'>
-					<div class='contact'>
-						<h3 class='contact-us'>Contact Us</h3>
-						<div class='alert'>Your message has been sent!</div>
+			<div className='container'>
+				<h1 className='title'>Contact Form</h1>
+				<div className='wrapper animated bounceInLeft'>
+					<div className='contact'>
+						<h3 className='contact-us'>Contact Us</h3>
+						<div className='alert'>Your message has been sent!</div>
 						<form id='contactForm'>
-							<p class='name-field'>
+							<p className='name-field'>
 								<label>
 									Name <span>*</span>
 								</label>
-								<input type='text' name='name' id='name' required />
+								<input
+									type='text'
+									name='name'
+									id='name'
+									required
+									value={name}
+									onChange={this.handleChange}
+								/>
 							</p>
-							<p class='company-field'>
-								<label>Company</label>
-								<input type='text' name='company' id='company' />
-							</p>
-							<p class='email-field'>
+
+							<p className='email-field'>
 								<label>
 									Email <span>*</span>
 								</label>
-								<input type='email' name='email' id='email' required />
+								<input
+									type='email'
+									name='email'
+									id='email'
+									required
+									value={email}
+									onChange={this.handleChange}
+								/>
 							</p>
-							<p class='phone-field'>
-								<label>Phone</label>
-								<input type='text' name='phone' id='phone' />
-							</p>
-							<p class='message-field full'>
+
+							<p className='message-field full'>
 								<label>Message</label>
-								<textarea name='message' rows='5' id='message'></textarea>
+								<textarea
+									name='message'
+									rows='5'
+									id='message'
+									value={message}
+									onChange={this.handleChange}
+								/>
 							</p>
-							<p class='required-field'>
+							<p className='required-field'>
 								Required field <span>*</span>
 							</p>
-							<p class='submit-button'>
+							<p className='submit-button'>
 								<button type='submit'>Submit</button>
 							</p>
 						</form>
@@ -78,18 +97,66 @@ class ContactPage extends React.Component {
 			</div>
 		);
 	}
-
-	onNameChange(event) {
-		this.setState({name: event.target.value});
-	}
-
-	onEmailChange(event) {
-		this.setState({email: event.target.value});
-	}
-
-	onMessageChange(event) {
-		this.setState({message: event.target.value});
-	}
 }
 
 export default ContactPage;
+
+// // Initialize Firebase
+// var config = {
+//     apiKey: "AIzaSyD5bCyvYm5adElW2tllyfYH-CXnyQdUxVY",
+//     authDomain: "contactform-2086d.firebaseapp.com",
+//     databaseURL: "https://contactform-2086d.firebaseio.com",
+//     projectId: "contactform-2086d",
+//     storageBucket: "contactform-2086d.appspot.com",
+//     messagingSenderId: "35839015044"
+//   };
+//   firebase.initializeApp(config);
+
+//   // Reference messages collection
+//   var messagesRef = firebase.database().ref('messages');
+
+//   // Listen for form submit
+//   document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+//   // Submit form
+//   function submitForm(e){
+//     e.preventDefault();
+
+//     //Get value
+//     var name = getInputVal('name');
+//     var company = getInputVal('company');
+//     var email = getInputVal('email');
+//     var phone = getInputVal('phone');
+//     var message = getInputVal('message');
+
+//     // Save message
+//     saveMessage(name, company, email, phone, message);
+
+//     // Show alert
+//     document.querySelector('.alert').style.display = 'block';
+
+//     // Hide alert after 3 seconds
+//     setTimeout(function(){
+//       document.querySelector('.alert').style.display = 'none';
+//     },3000);
+
+//     // Clear form
+//     document.getElementById('contactForm').reset();
+//   }
+
+//   // Function to get form value
+//   function getInputVal(id){
+//     return document.getElementById(id).value;
+//   }
+
+//   // Save message to firebase
+//   function saveMessage(name, company, email, phone, message){
+//     var newMessageRef = messagesRef.push();
+//     newMessageRef.set({
+//       name: name,
+//       company: company,
+//       email: email,
+//       phone: phone,
+//       message: message
+//     });
+//   }
