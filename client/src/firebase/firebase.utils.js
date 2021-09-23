@@ -45,6 +45,25 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	return userRef;
 };
 
+export const addMessage = async ({userName, email, message}) => {
+	try {
+		const messageRef = firestore.collection('messages');
+		console.log('Ref', messageRef);
+
+		const newDocRef = messageRef.doc();
+
+		const res = await newDocRef.set({
+			userName,
+			email,
+			message,
+			date: new Date(),
+		});
+		return Promise.resolve('received message');
+	} catch (e) {
+		return Promise.reject('did not receive message');
+	}
+};
+
 export const addCollectionsAndDocuments = async (collectionKey, objectsToAdd) => {
 	const collectionRef = firestore.collection(collectionKey);
 	// console.log('Ref',collectionRef);
@@ -55,7 +74,7 @@ export const addCollectionsAndDocuments = async (collectionKey, objectsToAdd) =>
 	const batch = firestore.batch();
 	objectsToAdd.forEach(obj => {
 		const newDocRef = collectionRef.doc(); //doc call at empty ref; firebase will create the ref and create an unique id
-		// console.log('newDocRef', newDocRef);
+		console.log('newDocRef', newDocRef);
 		batch.set(newDocRef, obj);
 	});
 

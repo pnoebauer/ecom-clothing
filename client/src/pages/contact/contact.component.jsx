@@ -1,36 +1,34 @@
 import React from 'react';
 
+import {addMessage} from '../../firebase/firebase.utils';
+
 import './contact.styles.css';
 
 class ContactPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
+			userName: '',
 			email: '',
 			message: '',
 		};
 	}
 
-	// handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	axios({
-	// 		method: 'POST',
-	// 		url: 'http://localhost:3002/send',
-	// 		data: this.state,
-	// 	}).then(response => {
-	// 		if (response.data.status === 'success') {
-	// 			alert('Message Sent.');
-	// 			this.resetForm();
-	// 		} else if (response.data.status === 'fail') {
-	// 			alert('Message failed to send.');
-	// 		}
-	// 	});
-	// }
+	handleSubmit = async event => {
+		event.preventDefault();
+		const {userName, email, message} = this.state;
 
-	// resetForm() {
-	// 	this.setState({name: '', email: '', message: ''});
-	// }
+		try {
+			const res = await addMessage({userName, email, message});
+			console.log({res});
+			alert('Message Sent.');
+		} catch (e) {
+			console.log({e});
+			alert('Message failed to send.');
+		}
+	};
+
+	resetForm = () => this.setState({name: '', email: '', message: ''});
 
 	handleChange = event => {
 		const {id, value} = event.currentTarget;
@@ -38,7 +36,7 @@ class ContactPage extends React.Component {
 	};
 
 	render() {
-		const {name, email, message} = this.state;
+		const {userName, email, message} = this.state;
 		return (
 			<div className='container'>
 				<h1 className='title'>Contact Form</h1>
@@ -53,10 +51,10 @@ class ContactPage extends React.Component {
 								</label>
 								<input
 									type='text'
-									name='name'
-									id='name'
+									name='userName'
+									id='userName'
 									required
-									value={name}
+									value={userName}
 									onChange={this.handleChange}
 								/>
 							</p>
@@ -89,7 +87,9 @@ class ContactPage extends React.Component {
 								Required field <span>*</span>
 							</p>
 							<p className='submit-button'>
-								<button type='submit'>Submit</button>
+								<button type='submit' onSubmit={this.handleSubmit}>
+									Submit
+								</button>
 							</p>
 						</form>
 					</div>
@@ -100,63 +100,3 @@ class ContactPage extends React.Component {
 }
 
 export default ContactPage;
-
-// // Initialize Firebase
-// var config = {
-//     apiKey: "AIzaSyD5bCyvYm5adElW2tllyfYH-CXnyQdUxVY",
-//     authDomain: "contactform-2086d.firebaseapp.com",
-//     databaseURL: "https://contactform-2086d.firebaseio.com",
-//     projectId: "contactform-2086d",
-//     storageBucket: "contactform-2086d.appspot.com",
-//     messagingSenderId: "35839015044"
-//   };
-//   firebase.initializeApp(config);
-
-//   // Reference messages collection
-//   var messagesRef = firebase.database().ref('messages');
-
-//   // Listen for form submit
-//   document.getElementById('contactForm').addEventListener('submit', submitForm);
-
-//   // Submit form
-//   function submitForm(e){
-//     e.preventDefault();
-
-//     //Get value
-//     var name = getInputVal('name');
-//     var company = getInputVal('company');
-//     var email = getInputVal('email');
-//     var phone = getInputVal('phone');
-//     var message = getInputVal('message');
-
-//     // Save message
-//     saveMessage(name, company, email, phone, message);
-
-//     // Show alert
-//     document.querySelector('.alert').style.display = 'block';
-
-//     // Hide alert after 3 seconds
-//     setTimeout(function(){
-//       document.querySelector('.alert').style.display = 'none';
-//     },3000);
-
-//     // Clear form
-//     document.getElementById('contactForm').reset();
-//   }
-
-//   // Function to get form value
-//   function getInputVal(id){
-//     return document.getElementById(id).value;
-//   }
-
-//   // Save message to firebase
-//   function saveMessage(name, company, email, phone, message){
-//     var newMessageRef = messagesRef.push();
-//     newMessageRef.set({
-//       name: name,
-//       company: company,
-//       email: email,
-//       phone: phone,
-//       message: message
-//     });
-//   }
