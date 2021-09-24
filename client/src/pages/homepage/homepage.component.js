@@ -1,7 +1,7 @@
-// import React, { Profiler } from 'react';
+// import React, { Profiler } from 'react'; //testing performance
 import React from 'react';
 
-import { HomePageContainer } from './homepage.styles';
+import {HomePageContainer} from './homepage.styles';
 
 import Directory from '../../components/directory/directory.component';
 

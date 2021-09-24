@@ -20,6 +20,7 @@ const SignInAndSignUpPage = lazy(() =>
 	import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
 );
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+// const ContactPage = lazy(() => import('./pages/contact/contact.component'));
 
 class App extends React.Component {
 	componentDidMount() {
@@ -35,11 +36,18 @@ class App extends React.Component {
 				<Header />
 				<Switch>
 					<ErrorBoundary>
-						<Suspense fallback={<Spinner />} >
+						<Suspense fallback={<Spinner />}>
 							<Route exact path='/' component={HomePage} />
 							<Route path='/shop' component={ShopPage} />
-							<Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage/>)} />
+							<Route
+								exact
+								path='/signin'
+								render={() =>
+									currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />
+								}
+							/>
 							<Route exact path='/checkout' component={CheckoutPage} />
+							<Route exact path='/contact' component={ContactPage} />
 						</Suspense>
 					</ErrorBoundary>
 				</Switch> */}

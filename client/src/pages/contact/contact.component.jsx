@@ -2,7 +2,24 @@ import React from 'react';
 
 import {addMessage} from '../../firebase/firebase.utils';
 
-import './contact.styles.css';
+import {
+	ContactPageContainer,
+	MainFormContainer,
+	TitleHeader,
+	Wrapper,
+	ContactUsHeader,
+	ContactFormContainer,
+	RequiredFieldContainer,
+	ButtonContainer,
+	SubmitButton,
+	SpanAsteriks,
+	AlertContainer,
+	NameFieldContainer,
+	EmailFieldContainer,
+	MessageFieldContainer,
+	InputField,
+	LabelContainer,
+} from './contact.styles';
 
 class ContactPage extends React.Component {
 	constructor(props) {
@@ -11,45 +28,59 @@ class ContactPage extends React.Component {
 			userName: '',
 			email: '',
 			message: '',
+			sentMessage: null,
 		};
 	}
 
 	handleSubmit = async event => {
 		event.preventDefault();
 		const {userName, email, message} = this.state;
-
+		console.log({userName, email, message}, 'sending');
 		try {
 			const res = await addMessage({userName, email, message});
 			console.log({res});
 			alert('Message Sent.');
+
+			this.setState({sentMessage: true});
 		} catch (e) {
 			console.log({e});
 			alert('Message failed to send.');
+
+			this.setState({sentMessage: false});
 		}
 	};
 
-	resetForm = () => this.setState({name: '', email: '', message: ''});
+	// resetForm = () => this.setState({name: '', email: '', message: '', sentMessage: false});
 
 	handleChange = event => {
-		const {id, value} = event.currentTarget;
-		this.setState({[id]: value});
+		// const {id, value} = event.currentTarget;
+		// this.setState({[id]: value});
+		const {name, value} = event.currentTarget;
+		console.log({name, value});
+		this.setState({[name]: value});
 	};
 
 	render() {
-		const {userName, email, message} = this.state;
+		const {userName, email, message, sentMessage} = this.state;
 		return (
-			<div className='container'>
-				<h1 className='title'>Contact Form</h1>
-				<div className='wrapper animated bounceInLeft'>
-					<div className='contact'>
-						<h3 className='contact-us'>Contact Us</h3>
-						<div className='alert'>Your message has been sent!</div>
-						<form id='contactForm'>
-							<p className='name-field'>
-								<label>
-									Name <span>*</span>
-								</label>
-								<input
+			<ContactPageContainer>
+				<MainFormContainer>
+					{/* <AlertContainer>Your message has been sent!</AlertContainer> */}
+					<TitleHeader>Contact Form</TitleHeader>
+					<Wrapper>
+						<ContactUsHeader>Contact Us</ContactUsHeader>
+						{/* {sentMessage === true ? (
+							<AlertContainer>Your message has been sent!</AlertContainer>
+						) : sentMessage === false ? (
+							<AlertContainer>Message failed to send.</AlertContainer>
+						) : null} */}
+
+						<ContactFormContainer>
+							<NameFieldContainer>
+								<LabelContainer>
+									Name <SpanAsteriks>*</SpanAsteriks>
+								</LabelContainer>
+								<InputField
 									type='text'
 									name='userName'
 									id='userName'
@@ -57,13 +88,13 @@ class ContactPage extends React.Component {
 									value={userName}
 									onChange={this.handleChange}
 								/>
-							</p>
+							</NameFieldContainer>
 
-							<p className='email-field'>
-								<label>
-									Email <span>*</span>
-								</label>
-								<input
+							<EmailFieldContainer>
+								<LabelContainer>
+									Email <SpanAsteriks>*</SpanAsteriks>
+								</LabelContainer>
+								<InputField
 									type='email'
 									name='email'
 									id='email'
@@ -71,30 +102,31 @@ class ContactPage extends React.Component {
 									value={email}
 									onChange={this.handleChange}
 								/>
-							</p>
+							</EmailFieldContainer>
 
-							<p className='message-field full'>
-								<label>Message</label>
-								<textarea
+							<MessageFieldContainer>
+								<LabelContainer>Message</LabelContainer>
+								<InputField
+									as='textarea'
 									name='message'
 									rows='5'
 									id='message'
 									value={message}
 									onChange={this.handleChange}
 								/>
-							</p>
-							<p className='required-field'>
-								Required field <span>*</span>
-							</p>
-							<p className='submit-button'>
-								<button type='submit' onSubmit={this.handleSubmit}>
+							</MessageFieldContainer>
+							<RequiredFieldContainer>
+								Required field <SpanAsteriks>*</SpanAsteriks>
+							</RequiredFieldContainer>
+							<ButtonContainer>
+								<SubmitButton type='submit' onClick={this.handleSubmit}>
 									Submit
-								</button>
-							</p>
-						</form>
-					</div>
-				</div>
-			</div>
+								</SubmitButton>
+							</ButtonContainer>
+						</ContactFormContainer>
+					</Wrapper>
+				</MainFormContainer>
+			</ContactPageContainer>
 		);
 	}
 }

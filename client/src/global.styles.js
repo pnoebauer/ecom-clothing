@@ -1,6 +1,8 @@
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css?family=Mukta+Mahee:200,400');
+    
     body {
         font-family: 'Open Sans Condensed';
         padding: 20px 40px;
