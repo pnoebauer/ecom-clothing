@@ -9,7 +9,7 @@ import Header from './components/header/header.component';
 import Spinner from './components/spinner/spinner.component';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
-import ContactPage from './pages/contact/contact.component';
+// import ContactPage from './pages/contact/contact.component';
 
 import {selectCurrentUser} from './redux/user/user.selectors';
 import {checkUserSession} from './redux/user/user.actions';
@@ -20,7 +20,7 @@ const SignInAndSignUpPage = lazy(() =>
 	import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
 );
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
-// const ContactPage = lazy(() => import('./pages/contact/contact.component'));
+const ContactPage = lazy(() => import('./pages/contact/contact.component'));
 
 class App extends React.Component {
 	componentDidMount() {
@@ -32,7 +32,7 @@ class App extends React.Component {
 		const {currentUser} = this.props;
 		return (
 			<div>
-				{/* <GlobalStyle />
+				<GlobalStyle />
 				<Header />
 				<Switch>
 					<ErrorBoundary>
@@ -50,8 +50,8 @@ class App extends React.Component {
 							<Route exact path='/contact' component={ContactPage} />
 						</Suspense>
 					</ErrorBoundary>
-				</Switch> */}
-				<ContactPage />
+				</Switch>
+				{/* <ContactPage /> */}
 			</div>
 		);
 	}

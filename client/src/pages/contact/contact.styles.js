@@ -9,13 +9,17 @@ const formParagraphStyles = css`
 `;
 
 export const ContactPageContainer = styled.div`
-	position: relative;
+	/* position: relative;
 	top: 0;
 	left: 0;
 	height: 100vh;
-	width: 100vw;
+	width: 100vw; */
+	width: 60%;
+	margin: auto;
 	background: #52c1f7;
 	box-sizing: border-box;
+	border-radius: 4px;
+	box-shadow: 0 0 10px 0 rgba(82, 193, 247, 0.6);
 `;
 
 export const MainFormContainer = styled.div`
@@ -27,7 +31,8 @@ export const MainFormContainer = styled.div`
 `;
 
 export const TitleHeader = styled.h1`
-	margin-bottom: 30px;
+	margin: 8px;
+	margin-top: 1px;
 	font-family: 'Mukta Mahee', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
@@ -106,19 +111,57 @@ export const SubmitButton = styled.button`
 	}
 `;
 
-export const SpanAsteriks = styled.span`
-	color: #5dc3f2;
-`;
+export const AlertContainer = styled.div`
+	padding: 15px;
 
-export const AlertContainer = styled.span`
-	margin-bottom: 1em;
-	padding: 10px;
-	background: #49b0e7;
+	width: 60%;
+	margin: auto;
+	margin-top: 10%;
 	font-family: 'Mukta Mahee', sans-serif;
-	font-size: 14px;
+	font-size: 18px;
+	background: #52c1f7;
+	box-sizing: border-box;
+	border-radius: 4px;
+	box-shadow: 0 0 10px 0 rgba(82, 193, 247, 0.6);
 	text-align: center;
 	color: #fff;
-	border-radius: 2.5px;
+`;
+
+export const LinkButtonContainer = styled.div`
+	/* max-width: 700px; */
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: flex-end;
+`;
+
+export const LinkButton = styled.button`
+	font-family: 'Mukta Mahee', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	color: #5dc3f2;
+	background: #fff;
+	/* width: 390px; */
+	/* float: right; */
+	padding: 5px;
+	height: 40px;
+	border: 0;
+	border-radius: 2px;
+
+	&:hover,
+	&:focus {
+		background: #52c1f7;
+		color: #fff;
+		outline: 0;
+		transition: background-color 0.3s ease-out;
+		cursor: pointer;
+	}
+`;
+
+export const SpanAsteriks = styled.span`
+	color: #5dc3f2;
 `;
 
 export const NameFieldContainer = styled.div`
