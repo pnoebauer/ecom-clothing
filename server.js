@@ -20,9 +20,15 @@ app.use(enforce.HTTPS({ trustProtoHeader: true })); //always use HTTPS even if r
 
 app.use(cors()); //allow requests from port 3000 (frontend) to port 5000 (backend)
 
+
 //in production serve all static files (html,css,js)
 if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')));
+
+	//when app requests service-worker.js file from '/service-worker.js' route, then send it
+	app.get('/service-worker.js', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client/build', 'service-worker.js')); //service-worker comes with create-react-app and is within the build folder
+	});
 
 	//any url user hits
 	app.get('*', function(req, res) {
@@ -35,10 +41,10 @@ app.listen(port, error => {
 	console.log('Server running on port', port);
 });
 
-//when app requests service-worker.js file from '/service-worker.js' route, then send it
-app.get('/service-worker.js', (req,res) => {
-	res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js')); //service-worker comes with create-react-app and is within the build folder
-});
+// //when app requests service-worker.js file from '/service-worker.js' route, then send it
+// app.get('/service-worker.js', (req,res) => {
+// 	res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js')); //service-worker comes with create-react-app and is within the build folder
+// });
 
 // frontend will post to route /payment
 app.post('/payment', (req, res) => {
