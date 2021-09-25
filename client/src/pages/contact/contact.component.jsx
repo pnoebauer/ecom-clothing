@@ -36,31 +36,31 @@ class ContactPage extends React.Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
+		event.stopPropagation();
+
+		this.setState({sentMessage: 'pending'});
+
 		const {userName, email, message} = this.state;
 		// console.log({userName, email, message}, 'sending');
 		try {
 			const res = await addMessage({userName, email, message});
 			// console.log({res});
-			alert('Message Sent.');
+			// alert('Message Sent.');
 
-			this.setState({sentMessage: true});
+			this.setState({sentMessage: 'success'});
 		} catch (e) {
 			// console.log({e});
 			// alert('Message failed to send.');
 
-			this.setState({sentMessage: false});
+			this.setState({sentMessage: 'fail'});
 		}
 	};
 
-	resetForm = () => this.setState({name: '', email: '', message: '', sentMessage: false});
+	resetForm = () => this.setState({name: '', email: '', message: '', sentMessage: null});
 
 	handleChange = event => {
 		const {name, value} = event.currentTarget;
 		this.setState({[name]: value});
-	};
-
-	handleLinkClick = () => {
-		this.resetForm();
 	};
 
 	componentWillUnmount() {
@@ -71,15 +71,15 @@ class ContactPage extends React.Component {
 		const {userName, email, message, sentMessage} = this.state;
 		return (
 			<>
-				{sentMessage === true ? (
-					<ResponseMessage handleLinkClick={this.handleLinkClick} />
+				{sentMessage ? (
+					<ResponseMessage sentMessage={sentMessage} />
 				) : (
 					<ContactPageContainer>
 						<MainFormContainer>
 							<TitleHeader>Contact Form</TitleHeader>
 							<Wrapper>
 								<ContactUsHeader>Contact Us</ContactUsHeader>
-								<ContactFormContainer>
+								<ContactFormContainer onSubmit={this.handleSubmit}>
 									<NameFieldContainer>
 										<LabelContainer>
 											Name <SpanAsteriks>*</SpanAsteriks>
@@ -123,9 +123,7 @@ class ContactPage extends React.Component {
 										Required field <SpanAsteriks>*</SpanAsteriks>
 									</RequiredFieldContainer>
 									<ButtonContainer>
-										<SubmitButton type='submit' onClick={this.handleSubmit}>
-											Submit
-										</SubmitButton>
+										<SubmitButton type='submit'>Submit</SubmitButton>
 									</ButtonContainer>
 								</ContactFormContainer>
 							</Wrapper>
