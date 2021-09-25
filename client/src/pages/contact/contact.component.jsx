@@ -13,7 +13,6 @@ import {
 	ButtonContainer,
 	SubmitButton,
 	SpanAsteriks,
-	AlertContainer,
 	NameFieldContainer,
 	EmailFieldContainer,
 	MessageFieldContainer,
@@ -43,15 +42,13 @@ class ContactPage extends React.Component {
 		const {userName, email, message} = this.state;
 		// console.log({userName, email, message}, 'sending');
 		try {
-			const res = await addMessage({userName, email, message});
-			// console.log({res});
+			await addMessage({userName, email, message});
 			// alert('Message Sent.');
 
 			this.setState({sentMessage: 'success'});
 		} catch (e) {
 			// console.log({e});
 			// alert('Message failed to send.');
-
 			this.setState({sentMessage: 'fail'});
 		}
 	};
