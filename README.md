@@ -1,4 +1,4 @@
-# # **E-Commerce Clothing Shop App**
+# **E-Commerce Clothing Shop App**
 
 # How to fork and clone
 
