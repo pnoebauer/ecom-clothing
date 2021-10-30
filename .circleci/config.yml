@@ -1,14 +1,22 @@
 version: 2
 jobs:
-  build:
+  build-server:
     docker:
       - image: circleci/node:8.9
     steps:
       - checkout
       - run: echo "npm installing on server"
       - run: npm install
+  build-client:
+    docker:
+      - image: circleci/node:8.9
+    steps:
+      - checkout
+      - run: echo "npm installing react"
+      - run: cd client && npm install react
 workflows:
   version: 2
   build_test:
     jobs:
-      - build
+      - build-server
+      - build-client
