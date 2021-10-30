@@ -29,7 +29,6 @@ workflows:
     jobs:
       - build-server
       - build-client
-      - test-client
-      - test:
+      - test-client:
           requires:
             - build-client
