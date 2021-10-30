@@ -5,8 +5,8 @@ jobs:
       - image: circleci/node:8.9
     steps:
       - checkout
-      - run: echo "npm installing"
-      - run: npm run heroku-postbuild
+      - run: echo "npm installing on server"
+      - run: npm install
 workflows:
   version: 2
   build_test:
