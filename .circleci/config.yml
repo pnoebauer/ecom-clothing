@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run: echo "npm installing"
-      - run: npm run build
+      - run: npm run heroku-postbuild
 workflows:
   version: 2
   build_test:
