@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9
+    steps:
+      - checkout
+      - run: echo "npm installing"
+      - run: npm run build
+workflows:
+  version: 2
+  build_test:
+    jobs:
+      - build
