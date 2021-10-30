@@ -34,7 +34,6 @@ jobs:
       - save_cache:
           paths:
             - client/node_modules
-            - node_modules
             - ~/.npm
             - ~/.cache
           key: v1-dependencies-{{ checksum "client/package.json" }}
@@ -54,7 +53,6 @@ jobs:
       - save_cache:
           paths:
             - client/node_modules
-            - node_modules
             - ~/.npm
             - ~/.cache
           key: v1-dependencies-{{ checksum "client/package.json" }}
