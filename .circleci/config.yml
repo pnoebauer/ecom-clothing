@@ -17,6 +17,7 @@ jobs:
       - run: echo "npm installing react"
       - run: cd client && yarn install
       - run: CI=true yarn build
+      - run: yarn test
 workflows:
   version: 2
   build_test:
