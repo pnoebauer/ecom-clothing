@@ -19,15 +19,24 @@ jobs:
             - ~/.cache
           key: v1-dependencies-{{ checksum "package.json" }}
   build-client:
-    working_directory: ~/project/client
     docker:
       - image: circleci/node:12.16.3-browsers
     parallelism: 4
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run: echo "npm installing react"
       - run: yarn install
       - run: yarn build
+      - save_cache:
+          paths:
+            - client/node_modules
+            - ~/.npm
+            - ~/.cache
+          key: v1-dependencies-{{ checksum "client/package.json" }}
   test-client:
     docker:
       - image: circleci/node:12.16.3-browsers
