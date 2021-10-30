@@ -3,6 +3,7 @@ jobs:
   build-server:
     docker:
       - image: circleci/node:8.9
+    parallelism: 4
     steps:
       - checkout
       - run: echo "npm installing on server"
