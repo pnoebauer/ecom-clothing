@@ -34,6 +34,7 @@ jobs:
       - save_cache:
           paths:
             - client/node_modules
+            - node_modules
             - ~/.npm
             - ~/.cache
           key: v1-dependencies-{{ checksum "client/package.json" }}
@@ -45,7 +46,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "client/package.json" }}
             - v1-dependencies-
       - run: echo "npm testing react"
       - run: cd client && yarn install
@@ -53,6 +54,7 @@ jobs:
       - save_cache:
           paths:
             - client/node_modules
+            - node_modules
             - ~/.npm
             - ~/.cache
           key: v1-dependencies-{{ checksum "client/package.json" }}
