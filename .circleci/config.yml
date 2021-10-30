@@ -9,7 +9,7 @@ jobs:
       - run: npm install
   build-client:
     docker:
-      - image: circleci/node:12.9.1-browsers
+      - image: circleci/node:12.13.0-browsers
     steps:
       - checkout
       - run: echo "npm installing react"
