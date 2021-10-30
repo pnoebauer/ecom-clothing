@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CollectionPreview component 1`] = `
+<collection-previewstyles__CollectionPreviewContainer>
+  <collection-previewstyles__TitleContainer>
+    Hats
+  </collection-previewstyles__TitleContainer>
+  <collection-previewstyles__PreviewContainer>
+    <Connect(CollectionItem)
+      item={
+        Object {
+          "id": 1,
+          "imageUrl": "https://i.ibb.co/ZYW3VTp/brown-brim.png",
+          "name": "Brown Brim",
+          "price": 25,
+        }
+      }
+      key="1"
+    />
+    <Connect(CollectionItem)
+      item={
+        Object {
+          "id": 2,
+          "imageUrl": "https://i.ibb.co/ypkgK0X/blue-beanie.png",
+          "name": "Blue Beanie",
+          "price": 18,
+        }
+      }
+      key="2"
+    />
+    <Connect(CollectionItem)
+      item={
+        Object {
+          "id": 3,
+          "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png",
+          "name": "sneakers",
+          "price": 30,
+        }
+      }
+      key="3"
+    />
+    <Connect(CollectionItem)
+      item={
+        Object {
+          "id": 4,
+          "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png",
+          "name": "womens",
+          "price": 10,
+        }
+      }
+      key="4"
+    />
+  </collection-previewstyles__PreviewContainer>
+</collection-previewstyles__CollectionPreviewContainer>
+`;

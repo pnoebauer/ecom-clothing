@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CollectionOverview component 1`] = `
+<styled.div>
+  <CollectionPreview
+    items={
+      Array [
+        Object {
+          "id": 1,
+          "imageUrl": "https://i.ibb.co/ZYW3VTp/brown-brim.png",
+          "name": "Brown Brim",
+          "price": 25,
+        },
+        Object {
+          "id": 2,
+          "imageUrl": "https://i.ibb.co/ypkgK0X/blue-beanie.png",
+          "name": "Blue Beanie",
+          "price": 18,
+        },
+      ]
+    }
+    key="5XnhLO3MJTywoST6lftW"
+    routeName="hats"
+    title="Hats"
+  />
+  <CollectionPreview
+    items={
+      Array [
+        Object {
+          "id": 10,
+          "imageUrl": "https://i.ibb.co/0s3pdnc/adidas-nmd.png",
+          "name": "Adidas NMD",
+          "price": 220,
+        },
+      ]
+    }
+    key="6Ezkl920BOYZl5rzZ3ea"
+    routeName="sneakers"
+    title="Sneakers"
+  />
+</styled.div>
+`;
