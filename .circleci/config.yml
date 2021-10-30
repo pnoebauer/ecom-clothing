@@ -11,6 +11,7 @@ jobs:
   build-client:
     docker:
       - image: circleci/node:12.16.3-browsers
+    parallelism: 4
     steps:
       - checkout
       - run: echo "npm installing react"
