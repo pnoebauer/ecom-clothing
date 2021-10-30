@@ -43,9 +43,19 @@ jobs:
     parallelism: 4
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run: echo "npm testing react"
       - run: cd client && yarn install
       - run: cd client && yarn test
+      - save_cache:
+          paths:
+            - client/node_modules
+            - ~/.npm
+            - ~/.cache
+          key: v1-dependencies-{{ checksum "client/package.json" }}
 workflows:
   version: 2
   build_test:
