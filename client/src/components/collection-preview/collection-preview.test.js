@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import CollectionPreview from './collection-preview.component';
+import CollectionItem from '../collection-item/collection-item.component';
 
 const mockProps = {
 	routeName: 'hats',
@@ -40,6 +41,19 @@ const mockProps = {
 	],
 };
 
-test('should render CollectionPreview component', () => {
-	expect(shallow(<CollectionPreview {...mockProps} key={1} />)).toMatchSnapshot();
+describe('<CollectionPreview /> testing', () => {
+	test('render CollectionPreview component', () => {
+		expect(shallow(<CollectionPreview {...mockProps} key={1} />)).toMatchSnapshot();
+	});
+
+	test('renders a maximum of 4 CollectionItem components', () => {
+		const wrapper = shallow(<CollectionPreview {...mockProps} key={1} />);
+		wrapper.find(CollectionItem);
+		// const result = wrapper.find(CollectionItem);
+		// console.log(wrapper.debug());
+		// console.log(result.debug());
+
+		// expect(wrapper.find(CollectionItem)).toHaveLength(4);
+		expect(wrapper.find(CollectionItem).length).toBeLessThanOrEqual(4);
+	});
 });

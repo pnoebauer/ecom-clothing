@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render CollectionOverview component 1`] = `
+exports[`<CollectionOverview /> testing render CollectionOverview component 1`] = `
 <styled.div>
   <CollectionPreview
     items={

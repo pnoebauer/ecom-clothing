@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render CollectionPreview component 1`] = `
+exports[`<CollectionPreview /> testing render CollectionPreview component 1`] = `
 <collection-previewstyles__CollectionPreviewContainer>
   <collection-previewstyles__TitleContainer>
     Hats

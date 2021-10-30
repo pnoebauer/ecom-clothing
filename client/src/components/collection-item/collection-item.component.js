@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import {
 	CollectionItemContainer,
@@ -8,33 +8,35 @@ import {
 	AddButton,
 	CollectionFooterContainer,
 	NameContainer,
-	PriceContainer
+	PriceContainer,
 } from './collection-item.styles';
 
-import { addItemToCart } from '../../redux/cart/cart.actions';
+import {addItemToCart} from '../../redux/cart/cart.actions';
 
-const CollectionItem = ({item, addItem}) => {
+export const CollectionItem = ({item, addItem}) => {
 	const {name, price, imageUrl} = item;
 	return (
 		<CollectionItemContainer>
-			<ImageContainer 
+			<ImageContainer
 				className='image'
 				style={{
-						backgroundImage: `url(${imageUrl})`
-					}}
+					backgroundImage: `url(${imageUrl})`,
+				}}
 			/>
 			<CollectionFooterContainer>
 				<NameContainer>{name}</NameContainer>
 				<PriceContainer>{price}</PriceContainer>
 			</CollectionFooterContainer>
-			<AddButton inverted onClick={() => addItem(item)} >Add to Cart</AddButton>
+			<AddButton inverted onClick={() => addItem(item)}>
+				Add to Cart
+			</AddButton>
 		</CollectionItemContainer>
 	);
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		addItem: item => dispatch(addItemToCart(item))
+		addItem: item => dispatch(addItemToCart(item)),
 	};
 };
 

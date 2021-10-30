@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {CollectionOverview} from './collection-overview.component';
+import CollectionPreview from '../collection-preview/collection-preview.component';
 
 const mockCollections = [
 	{
@@ -37,6 +38,21 @@ const mockCollections = [
 	},
 ];
 
-test('should render CollectionOverview component', () => {
-	expect(shallow(<CollectionOverview collections={mockCollections} />)).toMatchSnapshot();
+describe('<CollectionOverview /> testing', () => {
+	test('render CollectionOverview component', () => {
+		expect(
+			shallow(<CollectionOverview collections={mockCollections} />)
+		).toMatchSnapshot();
+	});
+
+	test('renders a CollectionPreview component for each element in the provided collections array ', () => {
+		const expectedNumber = mockCollections.length;
+		const wrapper = shallow(<CollectionOverview collections={mockCollections} />);
+		wrapper.find(CollectionPreview);
+		// const result = wrapper.find(CollectionItem);
+		// console.log(wrapper.debug());
+		// console.log(result.debug());
+
+		expect(wrapper.find(CollectionPreview)).toHaveLength(expectedNumber);
+	});
 });
