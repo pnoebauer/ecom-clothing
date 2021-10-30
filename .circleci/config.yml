@@ -29,8 +29,8 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run: echo "npm installing react"
-      - run: yarn install
-      - run: yarn build
+      - run: cd client && yarn install
+      - run: cd client && yarn build
       - save_cache:
           paths:
             - client/node_modules
