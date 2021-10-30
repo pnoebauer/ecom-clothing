@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build-server:
+    docker:
+      - image: circleci/node:8.9
+    parallelism: 4
+    steps:
+      - checkout
+      - run: echo "npm installing on server"
+      - run: npm install
+  build-client:
+    docker:
+      - image: circleci/node:12.16.3-browsers
+    parallelism: 4
+    steps:
+      - checkout
+      - run: echo "npm installing react"
+      - run: cd client && yarn install
+      - run: yarn build
+  test-client:
+    docker:
+      - image: circleci/node:12.16.3-browsers
+    parallelism: 4
+    steps:
+      - checkout
+      - run: echo "npm installing react"
+      - run: cd client && yarn install
+      - run: cd client && yarn test
+workflows:
+  version: 2
+  build_test:
+    jobs:
+      - build-server
+      - build-client
+      - test-client

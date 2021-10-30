@@ -52,7 +52,7 @@ export const addMessage = async ({userName, email, message}) => {
 
 		const newDocRef = messageRef.doc();
 
-		const res = await newDocRef.set({
+		await newDocRef.set({
 			userName,
 			email,
 			message,
