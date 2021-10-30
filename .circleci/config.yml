@@ -28,7 +28,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "client/package.json" }}
             - v1-dependencies-
-      - run: echo "npm installing react"
+      - run: echo "npm installing client side"
       - run: cd client && yarn install
       - run: cd client && yarn build
       - save_cache:
@@ -48,7 +48,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "client/package.json" }}
             - v1-dependencies-
-      - run: echo "npm testing react"
+      - run: echo "npm testing client side"
       - run: cd client && yarn install
       - run: cd client && yarn test
       - save_cache:
