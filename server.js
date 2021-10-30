@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-// const bodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
 const enforce = require('express-sslify');
@@ -20,7 +19,7 @@ app.use(express.urlencoded({extended: true})); //url requests that contain incor
 
 app.use(cors()); //allow requests from port 3000 (frontend) to port 5000 (backend)
 
-//in production serve all static files (html,css,js)
+//in production serve all static files (html, css, js)
 if (process.env.NODE_ENV === 'production') {
 	app.use(enforce.HTTPS({trustProtoHeader: true}));
 	app.use(express.static(path.join(__dirname, 'client/build')));
