@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {Directory} from './Directory.component';
+import {Directory} from './Directory.component.jsx';
 import MenuItem from '../menu-item/menu-item.component';
 
 const mockSections = [
