@@ -1,8 +1,12 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import Directory from './directory.component';
+import {Directory} from './directory.component';
 // import MenuItem from '../menu-item/menu-item.component';
+
+test('render Directory component', () => {
+	expect(5).toBe(5);
+});
 
 // const mockSections = [
 // 	{
