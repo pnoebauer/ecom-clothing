@@ -48,8 +48,7 @@ describe('<CollectionOverview /> testing', () => {
 	test('renders a CollectionPreview component for each element in the provided collections array ', () => {
 		const expectedNumber = mockCollections.length;
 		const wrapper = shallow(<CollectionOverview collections={mockCollections} />);
-		wrapper.find(CollectionPreview);
-		// const result = wrapper.find(CollectionItem);
+		// const result = wrapper.find(CollectionPreview);
 		// console.log(wrapper.debug());
 		// console.log(result.debug());
 
