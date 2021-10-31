@@ -1,5 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
+
 import {Directory} from './Directory.component';
 import MenuItem from '../menu-item/menu-item.component';
 
