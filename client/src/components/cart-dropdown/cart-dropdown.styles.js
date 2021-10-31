@@ -1,7 +1,8 @@
 import styled from 'styled-components/macro';
+import CustomButton from '../custom-button/custom-button.component';
 
 export const CartDropdownContainer = styled.div`
-	position: absolute;	
+	position: absolute;
 	width: 240px;
 	height: 340px;
 	display: flex;
@@ -27,7 +28,7 @@ export const EmptyMessageContainer = styled.span`
 	margin: 50px auto;
 `;
 
-export const CustomButtonContainer = styled.button`
+export const CartDropdownButton = styled(CustomButton)`
 	margin-top: auto;
 	font-size: 12px;
 `;

@@ -45,7 +45,7 @@ describe('<CollectionOverview /> testing', () => {
 		).toMatchSnapshot();
 	});
 
-	test('renders a CollectionPreview component for each element in the provided collections array ', () => {
+	test('renders a CollectionPreview component for each element in the provided collections array', () => {
 		const expectedNumber = mockCollections.length;
 		const wrapper = shallow(<CollectionOverview collections={mockCollections} />);
 		// const result = wrapper.find(CollectionPreview);

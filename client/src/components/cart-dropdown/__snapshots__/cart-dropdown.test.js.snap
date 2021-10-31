@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartDropdown component render CartDropdown component 1`] = `
+<cart-dropdownstyles__CartDropdownContainer>
+  <cart-dropdownstyles__CartItemsContainer>
+    <Memo(CartItem)
+      item={
+        Object {
+          "id": 1,
+        }
+      }
+      key="1"
+    />
+    <Memo(CartItem)
+      item={
+        Object {
+          "id": 2,
+        }
+      }
+      key="2"
+    />
+    <Memo(CartItem)
+      item={
+        Object {
+          "id": 3,
+        }
+      }
+      key="3"
+    />
+  </cart-dropdownstyles__CartItemsContainer>
+  <cart-dropdownstyles__CartDropdownButton
+    onClick={[Function]}
+  >
+    GO TO CHECKOUT
+  </cart-dropdownstyles__CartDropdownButton>
+</cart-dropdownstyles__CartDropdownContainer>
+`;
