@@ -28,13 +28,13 @@ describe('<Directory /> testing', () => {
 		expect(shallow(<Directory sections={mockSections} />)).toMatchSnapshot();
 	});
 
-// 	test('renders a MenuItem component for each element in the provided sections array ', () => {
-// 		const expectedNumber = mockSections.length;
-// 		const wrapper = shallow(<Directory sections={mockSections} />);
-// 		// const result = wrapper.find(MenuItem);
-// 		// console.log(wrapper.debug());
-// 		// console.log(result.debug());
+	test('renders a MenuItem component for each element in the provided sections array ', () => {
+		const expectedNumber = mockSections.length;
+		const wrapper = shallow(<Directory sections={mockSections} />);
+		// const result = wrapper.find(MenuItem);
+		// console.log(wrapper.debug());
+		// console.log(result.debug());
 
-// 		expect(wrapper.find(MenuItem)).toHaveLength(expectedNumber);
-// 	});
-// });
+		expect(wrapper.find(MenuItem)).toHaveLength(expectedNumber);
+	});
+});
