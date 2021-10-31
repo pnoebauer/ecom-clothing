@@ -48,7 +48,6 @@ describe('<CollectionPreview /> testing', () => {
 
 	test('renders a maximum of 4 CollectionItem components', () => {
 		const wrapper = shallow(<CollectionPreview {...mockProps} key={1} />);
-		wrapper.find(CollectionItem);
 		// const result = wrapper.find(CollectionItem);
 		// console.log(wrapper.debug());
 		// console.log(result.debug());
