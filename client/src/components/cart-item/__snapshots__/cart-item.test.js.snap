@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render CartItem component 1`] = `
+exports[`CartItem component tests render CartItem component 1`] = `
 <cart-itemstyles__CartItemContainer>
   <cart-itemstyles__ImageContainer
     alt="item"
