@@ -8,6 +8,7 @@ import {
 
 class ErrorBoundary extends React.Component {
 	constructor() {
+		super();
 		this.state = {
 			hasErrored: false,
 		};

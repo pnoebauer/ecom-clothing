@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomButton component tests render CustomButton component 1`] = `
+<styled.button
+  className="test"
+  onClick={[MockFunction]}
+>
+  Sample Input
+</styled.button>
+`;
