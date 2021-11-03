@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionItem component tests render CollectionItem component 1`] = `
+<collection-itemstyles__CollectionItemContainer>
+  <collection-itemstyles__ImageContainer
+    className="image"
+    style={
+      Object {
+        "backgroundImage": "url(www.testImage.com)",
+      }
+    }
+  />
+  <collection-itemstyles__CollectionFooterContainer>
+    <collection-itemstyles__NameContainer>
+      hats
+    </collection-itemstyles__NameContainer>
+    <collection-itemstyles__PriceContainer>
+      10
+    </collection-itemstyles__PriceContainer>
+  </collection-itemstyles__CollectionFooterContainer>
+  <collection-itemstyles__AddButton
+    inverted={true}
+    onClick={[Function]}
+  >
+    Add to Cart
+  </collection-itemstyles__AddButton>
+</collection-itemstyles__CollectionItemContainer>
+`;
