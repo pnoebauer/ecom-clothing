@@ -10,7 +10,7 @@ describe('ErrorBoundary component tests', () => {
 		</ErrorBoundary>
 	);
 
-	wrapper.setState({hasErrored: false});
+	wrapper.setState({hasErrored: true});
 
 	test('render ErrorBoundary component', () => {
 		expect(wrapper).toMatchSnapshot();
