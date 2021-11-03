@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckoutItem component tests render CheckoutItem component 1`] = `
+<checkout-itemstyles__CheckoutItemContainer>
+  <checkout-itemstyles__ImageContainer>
+    <img
+      alt="item"
+      src="www.testImage.com"
+    />
+  </checkout-itemstyles__ImageContainer>
+  <checkout-itemstyles__TextContainer>
+    hats
+  </checkout-itemstyles__TextContainer>
+  <checkout-itemstyles__QuantityContainer>
+    <div
+      id="removeItem"
+      onClick={[Function]}
+    >
+      ❮
+    </div>
+    <span>
+      2
+    </span>
+    <div
+      id="addItem"
+      onClick={[Function]}
+    >
+      ❯
+    </div>
+  </checkout-itemstyles__QuantityContainer>
+  <checkout-itemstyles__TextContainer>
+    $
+    10
+  </checkout-itemstyles__TextContainer>
+  <checkout-itemstyles__RemoveButtonContainer
+    onClick={[Function]}
+  >
+    ✕
+  </checkout-itemstyles__RemoveButtonContainer>
+</checkout-itemstyles__CheckoutItemContainer>
+`;
