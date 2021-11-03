@@ -19,7 +19,7 @@ import {selectCurrentUser} from '../../redux/user/user.selectors';
 import {selectCartHidden} from '../../redux/cart/cart.selectors';
 import {signOutStart} from '../../redux/user/user.actions';
 
-const Header = ({currentUser, hideCartDropdown, signOutStart}) => (
+export const Header = ({currentUser, hideCartDropdown, signOutStart}) => (
 	<HeaderContainer>
 		<LogoContainer to='/'>
 			<Logo className='logo' />

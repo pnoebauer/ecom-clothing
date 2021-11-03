@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component render Header component 1`] = `
+<headerstyles__HeaderContainer>
+  <headerstyles__LogoContainer
+    to="/"
+  >
+    <ForwardRef(SvgLogo)
+      className="logo"
+    />
+  </headerstyles__LogoContainer>
+  <headerstyles__OptionsContainer>
+    <headerstyles__OptionContainer
+      as={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      to="/shop"
+    >
+      SHOP
+    </headerstyles__OptionContainer>
+    <headerstyles__OptionContainer
+      as={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      to="/contact"
+    >
+      CONTACT
+    </headerstyles__OptionContainer>
+    <headerstyles__OptionContainer
+      onClick={[MockFunction]}
+    >
+      SIGN OUT
+    </headerstyles__OptionContainer>
+    <Connect(CartIcon) />
+  </headerstyles__OptionsContainer>
+</headerstyles__HeaderContainer>
+`;
