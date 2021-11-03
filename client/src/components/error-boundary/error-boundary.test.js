@@ -6,7 +6,7 @@ import ErrorBoundary from './error-boundary.component';
 describe('ErrorBoundary component tests', () => {
 	const wrapper = mount(
 		<ErrorBoundary>
-			<div>Test</div>
+			<div>Output if there are no errors</div>
 		</ErrorBoundary>
 	);
 
