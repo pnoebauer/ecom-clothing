@@ -1,10 +1,10 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
 import ErrorBoundary from './error-boundary.component';
 
 describe('ErrorBoundary component tests', () => {
-	const wrapper = mount(
+	const wrapper = shallow(
 		<ErrorBoundary>
 			<div>Output if there are no errors</div>
 		</ErrorBoundary>

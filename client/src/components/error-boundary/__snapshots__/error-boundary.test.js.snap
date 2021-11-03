@@ -1,26 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ErrorBoundary component tests render ErrorBoundary component 1`] = `
-<ErrorBoundary>
-  <error-boundarystyles__ErrorImageOverlay>
-    <div
-      className="error-boundarystyles__ErrorImageOverlay-sc-1j5qsgr-0 emFbxf"
-    >
-      <error-boundarystyles__ErrorImageContainer
-        imageUrl="https://i.imgur.com/yW2W9SC.png"
-      >
-        <div
-          className="error-boundarystyles__ErrorImageContainer-sc-1j5qsgr-1 hnfiIq"
-        />
-      </error-boundarystyles__ErrorImageContainer>
-      <error-boundarystyles__ErrorImageText>
-        <h2
-          className="error-boundarystyles__ErrorImageText-sc-1j5qsgr-2 hreTuq"
-        >
-          Sorry this page is broken
-        </h2>
-      </error-boundarystyles__ErrorImageText>
-    </div>
-  </error-boundarystyles__ErrorImageOverlay>
-</ErrorBoundary>
+<error-boundarystyles__ErrorImageOverlay>
+  <error-boundarystyles__ErrorImageContainer
+    imageUrl="https://i.imgur.com/yW2W9SC.png"
+  />
+  <error-boundarystyles__ErrorImageText>
+    Sorry this page is broken
+  </error-boundarystyles__ErrorImageText>
+</error-boundarystyles__ErrorImageOverlay>
 `;
