@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput component tests render FormInput component 1`] = `
+<styled.div>
+  <styled.input
+    onChange={[MockFunction]}
+    value="test@gmail.com"
+  />
+  <styled.label
+    className="shrink"
+  >
+    email
+  </styled.label>
+</styled.div>
+`;
