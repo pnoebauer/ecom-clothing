@@ -2,25 +2,25 @@
 
 exports[`ErrorBoundary component tests render ErrorBoundary component 1`] = `
 <ErrorBoundary>
-  <styled.div>
+  <error-boundarystyles__ErrorImageOverlay>
     <div
-      className="sc-bdnylx iIruDP"
+      className="error-boundarystyles__ErrorImageOverlay-sc-1j5qsgr-0 emFbxf"
     >
-      <styled.div
+      <error-boundarystyles__ErrorImageContainer
         imageUrl="https://i.imgur.com/yW2W9SC.png"
       >
         <div
-          className="sc-gtssRu jbPpiV"
+          className="error-boundarystyles__ErrorImageContainer-sc-1j5qsgr-1 hnfiIq"
         />
-      </styled.div>
-      <styled.h2>
+      </error-boundarystyles__ErrorImageContainer>
+      <error-boundarystyles__ErrorImageText>
         <h2
-          className="sc-dlnjPT gmrgPi"
+          className="error-boundarystyles__ErrorImageText-sc-1j5qsgr-2 hreTuq"
         >
           Sorry this page is broken
         </h2>
-      </styled.h2>
+      </error-boundarystyles__ErrorImageText>
     </div>
-  </styled.div>
+  </error-boundarystyles__ErrorImageOverlay>
 </ErrorBoundary>
 `;

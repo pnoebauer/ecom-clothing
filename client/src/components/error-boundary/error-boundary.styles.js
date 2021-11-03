@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const ErrorImageOverlay = styled.div`
-	height: 60vh;
+	height: 55vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -14,11 +14,11 @@ export const ErrorImageContainer = styled.div`
 	background-image: ${({imageUrl}) => `url(${imageUrl})`};
 	background-size: cover;
 	background-position: center;
-	width: 40vh;
-	height: 40vh;
+	width: 39vh;
+	height: 39vh;
 `;
 
 export const ErrorImageText = styled.h2`
-	font-size: 26px;
+	font-size: 28px;
 	color: #2f8e89;
 `;
