@@ -4,18 +4,18 @@ exports[`ErrorBoundary component tests render ErrorBoundary component 1`] = `
 <ErrorBoundary>
   <styled.div>
     <div
-      className="sc-bdnylx isrdjP"
+      className="sc-bdnylx iIruDP"
     >
       <styled.div
         imageUrl="https://i.imgur.com/yW2W9SC.png"
       >
         <div
-          className="sc-gtssRu lbSEHR"
+          className="sc-gtssRu jbPpiV"
         />
       </styled.div>
       <styled.h2>
         <h2
-          className="sc-dlnjPT hcKcXE"
+          className="sc-dlnjPT gmrgPi"
         >
           Sorry this page is broken
         </h2>
